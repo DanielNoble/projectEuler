@@ -4,8 +4,19 @@ package euler;
 public class Main {
 
     public static void main(String[] args) {
+        mult();
         fibonacci();
         prime();
+    }
+
+    private static void mult() {
+        int sum = 0;
+        for (int i = 3; i < 1000; i++){
+            if (i % 3 == 0 || i % 5 == 0){
+                sum += i;
+            }
+        }
+        printAnswer(1, sum);
     }
 
     private static void fibonacci() { // problem 2
