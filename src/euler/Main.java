@@ -9,6 +9,7 @@ public class Main {
         prime();
         palindrome();
         evenlyDivisible();
+        squareDifference();
     }
 
     private static void mult() { // problem 1
@@ -89,6 +90,24 @@ public class Main {
             val++;
         }
         printAnswer(5,num);
+    }
+    
+    private static void squareDifference(){ // problem 6
+    	int sumOfSquares;
+    	int sum;
+    	int diff;
+    	
+    	for (int i = 1; i <= 100; i++){
+    		sumOfSquares += i * i;
+    	}
+    	
+    	for (int i = 1; i <= 100; i++){
+    		sum += i;
+    	}
+    	
+    	diff = sum * sum - sumOfSquares;
+    	
+    	printAnswer(6, diff);
     }
 
     private static void printAnswer(int problemNumber, Object answer) {
