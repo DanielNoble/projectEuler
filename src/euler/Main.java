@@ -4,10 +4,12 @@ public class Euler {
 		two();
 		three();
 		four();
-		five();
+		// five();
 		six();
 		seven();
 		eight();
+		nine();
+		ten();
 	}
 	
 	public static void one() { // Multiples of 3 and 5
@@ -68,27 +70,27 @@ public class Euler {
         printAnswer(4, largest);
     }
 
-    private static void five(){ // smallest multiple of 1-20
-        long val = 21L;
-        int num = 0;
-        while (num==0) {
-            boolean all = true;
-            for (int i = 1; i < 21; i++) {
-                all = true;
-                if (val % i != 0)
-                {
-                    all = false;
-                    break;
-                }
-            }
-            if (all) {
-                num = (int)val;
-            }
+    // private static void five(){ // smallest multiple of 1-20
+        // long val = 21L;
+        // int num = 0;
+        // while (num==0) {
+            // boolean all = true;
+            // for (int i = 1; i < 21; i++) {
+                // all = true;
+                // if (val % i != 0)
+                // {
+                    // all = false;
+                    // break;
+                // }
+            // }
+            // if (all) {
+                // num = (int)val;
+            // }
 
-            val++;
-        }
-        printAnswer(5,num);
-    }
+            // val++;
+        // }
+        // printAnswer(5,num);
+    // }
     
     private static void six(){ // Difference between sum of squares and square of sums from numbers 1-100
     	int sumOfSquares = 0;
@@ -121,7 +123,7 @@ public class Euler {
 		printAnswer(7, num);
 	}
 
-		private static boolean isPrime(int num) { // Problem 7 helper method
+		private static boolean isPrime(int num) { // Problem 7 10 helper method
 			if (num < 2) return false;
 			if (num == 2) return true;
 			if (num % 2 == 0) return false;
@@ -145,6 +147,44 @@ public class Euler {
 		
 		printAnswer(8, biggestProduct);
 	}
+	
+	public static void nine() { // product of a, b, c in pythagorean triple whose sum is 1000
+		int answer = 0;
+		outerLoop:
+		for (int a = 1; a < 1000; a++) {
+			
+			for (int b = a + 1; b < 1000; b++) {
+				
+				double cSquared = a * a + b * b;
+				double c = Math.sqrt(cSquared);
+				if (a + b + c == 1000) {
+					answer = a * b * (int)c;
+					break outerLoop;
+				}
+			}
+		}
+		printAnswer(9, answer);
+	}
+	
+	public static void ten() {
+		long sum = 0;
+		for (long i = 1L; i < 2000000L; i++) {
+			if (isPrime10(i)) {
+				sum += i;
+			}
+		}
+		
+		printAnswer(10, sum);
+	}
+	
+		private static boolean isPrime10(long num) { // Problem 7 10 helper method
+				if (num < 2L) return false;
+				if (num == 2L) return true;
+				if (num % 2L == 0) return false;
+				for (long i = 3L; i * i <= num; i += 2L)
+					if (num % i == 0L) return false;
+				return true;
+		}
 	
 	private static void printAnswer(int problemNumber, Object answer) {
         System.out.printf("The answer to problem %d is %s\n", problemNumber, answer);
